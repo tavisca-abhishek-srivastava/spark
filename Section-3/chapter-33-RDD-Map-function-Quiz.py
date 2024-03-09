@@ -16,7 +16,7 @@ def foo(x):
 
 conf = SparkConf().setAppName("Quiz")
 sc = SparkContext(master='local').getOrCreate(conf=conf)
-text = sc.textFile("c:\\tmp\\quiz.txt")
+text = sc.textFile("/tmp/quiz.txt")
 rdd2 = text.map(foo)
 print((rdd2.collect()))
 
