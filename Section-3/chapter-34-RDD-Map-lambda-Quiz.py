@@ -16,7 +16,7 @@ os.environ['PYSPARK_DRIVER_PYTHON'] = sys.executable
 
 conf = SparkConf().setAppName("Quiz")
 sc = SparkContext(master='local').getOrCreate(conf=conf)
-text = sc.textFile("c:\\tmp\\quiz.txt")
+text = sc.textFile("/tmp/Quiz.txt")
 rdd2 = text.map(lambda x: [len(s) for s in x.split(' ')])
 print((rdd2.collect()))
 

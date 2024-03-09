@@ -17,7 +17,7 @@ os.system('cls||system')
 
 conf = SparkConf().setAppName("FlatMap")
 sc = SparkContext(master='local').getOrCreate(conf=conf)
-text = sc.textFile("c:\\tmp\\quiz.txt")
+text = sc.textFile("/tmp/Quiz.txt")
 
 print(text.collect())
 
