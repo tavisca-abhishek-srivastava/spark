@@ -12,14 +12,8 @@ def foo(x):
     
     return list_of_int
 
-
-
 conf = SparkConf().setAppName("Map Function")
 sc = SparkContext(master='local').getOrCreate(conf=conf)
 text = sc.textFile("/tmp/abc.txt")
 rdd2 = text.map(foo)   # here the return value of function will be added in the list of rdd type 
 print((rdd2.collect()))
-
-
-
-
