@@ -6,4 +6,3 @@ sc = SparkContext(master='local').getOrCreate(conf=conf)
 
 rdd = sc.textFile("/tmp/abc.txt")
 print(rdd.collect())
-

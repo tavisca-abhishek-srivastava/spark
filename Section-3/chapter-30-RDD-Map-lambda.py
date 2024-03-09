@@ -14,7 +14,3 @@ sc = SparkContext(master='local').getOrCreate(conf=conf)
 text = sc.textFile("/tmp/abc.txt")
 rdd2 = text.map(lambda x: x + " abhishek")
 print(rdd2.collect())
-
-
-
-
