@@ -16,7 +16,7 @@ os.environ['PYSPARK_DRIVER_PYTHON'] = sys.executable
 
 conf = SparkConf().setAppName("Quiz")
 sc = SparkContext(master='local').getOrCreate(conf=conf)
-text = sc.textFile("/tmp/Quiz.txt")
+text = sc.textFile("./quiz-33.txt")
 rdd2 = text.map(lambda x: [len(s) for s in x.split(' ')]) # here input to map (x) is list of int and return type is list of lists. here lambda is creating list of length of items from list passed to it
 print((rdd2.collect()))
 

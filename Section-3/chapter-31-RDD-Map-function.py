@@ -14,6 +14,6 @@ def foo(x):
 
 conf = SparkConf().setAppName("Map Function")
 sc = SparkContext(master='local').getOrCreate(conf=conf)
-text = sc.textFile("/tmp/abc-31.txt")
+text = sc.textFile("./abc-31.txt")
 rdd2 = text.map(foo)   # here input to map (x) is string(containing numbers) and return type is list of lists. here foo is adding 4 in each element of list passed to it
 print((rdd2.collect()))
