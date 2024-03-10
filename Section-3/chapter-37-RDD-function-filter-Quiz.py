@@ -14,8 +14,8 @@ def filter_word_with_a(word_to_check):
 
 conf = SparkConf().setAppName("FlatMap")
 sc = SparkContext(master='local').getOrCreate(conf=conf)
-text = sc.textFile("./quiz.txt")
-flatmappedrdd = text.flatMap(lambda x: x.split(' ')) # input to both map and flatmap is list and return type is list [map -> lsit of lists , flatmap -> List of int/string]
+text = sc.textFile("./abc-37.txt")
+flatmappedrdd = text.flatMap(lambda x: x.split(' ')) #  x.split(' ') -> list 
 rdd2 = flatmappedrdd.filter(filter_word_with_a )
 print("Mapped Data: \n {0} ".format(rdd2.collect()))
 
