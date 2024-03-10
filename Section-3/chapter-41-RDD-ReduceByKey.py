@@ -19,7 +19,7 @@ rdd4 = rdd3.map(lambda x: (x,1) )
 #print(rdd3.collect())
 # print("Word and It's Occurance : \n {0} ".format(rdd4.reduceByKey(lambda x,y: (x+y)).collect()))
 rdd_reducebykey = rdd4.reduceByKey(lambda x,y: (x+y)) # x and y are value from tuple
-print("Word and It's Occurance : \n {0} ".format(rdd_reducebykey))
+print("Word and It's Occurance : \n {0} ".format(rdd_reducebykey.collect()))
 
 
 
