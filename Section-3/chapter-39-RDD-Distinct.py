@@ -17,7 +17,7 @@ os.system('cls||system')
 
 conf = SparkConf().setAppName("Distinct")
 sc = SparkContext(master='local').getOrCreate(conf=conf)
-text = sc.textFile("c:\\tmp\\rdd-disrtinct.txt")
+text = sc.textFile("./abc-39.txt")
 rdd2 = text.flatMap(lambda x: x.split(' '))
 print("Flat Mapped Data: \n {0} ".format(rdd2.collect()))
 
