@@ -10,7 +10,7 @@ conf = SparkConf().setAppName("FlatMap")
 sc = SparkContext(master='local').getOrCreate(conf=conf)
 text = sc.textFile("./quiz.txt")
 flatmappedrdd = text.flatMap(lambda x: x.split(' '))
-rdd2 = flatmappedrdd.filter(lambda x: not(x.startswith('a')) )
+rdd2 = flatmappedrdd.filter(lambda x: not(x.startswith('a')) ) # every item from flatmappedrdd list will be passed to "filter_word_with_a" function
 print("Mapped Data: \n {0} ".format(rdd2.collect()))
 
 
