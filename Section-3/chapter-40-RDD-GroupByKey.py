@@ -15,9 +15,3 @@ rdd3 = rdd2.map(lambda x: (x,len(x)+ random.randint(1,99)) )
 #print(rdd3.groupByKey().mapValues(list).collect())
 rddgbk = rdd3.groupByKey().mapValues(list)
 print(rddgbk.collect())
-
-
-
-
-
-
