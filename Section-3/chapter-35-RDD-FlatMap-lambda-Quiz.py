@@ -17,14 +17,14 @@ os.system('cls||system')
 
 conf = SparkConf().setAppName("FlatMap")
 sc = SparkContext(master='local').getOrCreate(conf=conf)
-text = sc.textFile("/tmp/Quiz.txt")
+text = sc.textFile("./abc.txt")
 
 print(text.collect())
 
-rdd2 = text.map(lambda x: [s for s in x.split(' ')]) # input to both map and flatmap is list and return type is list [map -> lsit of lists , flatmap -> List of int/string]
+rdd2 = text.map(lambda x: [s for s in x.split(' ')]) # input to map is list of string and return type is  list of lists. input to lambda is string(lines from file) and output is list of words
 print("Mapped Data: \n {0} ".format(rdd2.collect()))
 
-FlatMaprdd2 = text.flatMap(lambda x: [s for s in x.split(' ')]) # input to both map and flatmap is list and return type is list [map -> lsit of lists , flatmap -> List of int/string]
+FlatMaprdd2 = text.flatMap(lambda x: [s for s in x.split(' ')]) # input to flatmap is list of string and return type is list. input to lambda is string(lines from file) and output is list of words
 print("Flat Mapped Data: \n {0} ".format((FlatMaprdd2.collect())))
 
 

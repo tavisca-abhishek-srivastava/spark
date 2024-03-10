@@ -17,7 +17,7 @@ def foo(x):
 conf = SparkConf().setAppName("Quiz")
 sc = SparkContext(master='local').getOrCreate(conf=conf)
 text = sc.textFile("./quiz-33.txt")
-rdd2 = text.map(foo) # here input to map (x) is list of int and return type is list of lists. here foo is creating list of length of items from list passed to it
+rdd2 = text.map(foo) # here input to map (x) is string and return type is list of lists. here foo is creating list of length of items from string passed to it
 print((rdd2.collect()))
 
 
