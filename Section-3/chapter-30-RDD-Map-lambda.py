@@ -11,6 +11,6 @@ os.environ['PYSPARK_DRIVER_PYTHON'] = sys.executable
 ###########################
 conf = SparkConf().setAppName("Map lambda")
 sc = SparkContext(master='local').getOrCreate(conf=conf)
-text = sc.textFile("/tmp/abc.txt")
-rdd2 = text.map(lambda x: x + " abhishek")
+text = sc.textFile("./abc.txt")
+rdd2 = text.map(lambda x: x + " abhishek") # here input to map (x) is string and return type is list. Lambda is adding "abhishek" in every string passed to it
 print(rdd2.collect())

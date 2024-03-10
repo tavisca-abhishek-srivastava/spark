@@ -21,10 +21,10 @@ text = sc.textFile("/tmp/Quiz.txt")
 
 print(text.collect())
 
-rdd2 = text.map(lambda x: [s for s in x.split(' ')])
+rdd2 = text.map(lambda x: [s for s in x.split(' ')]) # input to both map and flatmap is list and return type is list [map -> lsit of lists , flatmap -> List of int/string]
 print("Mapped Data: \n {0} ".format(rdd2.collect()))
 
-FlatMaprdd2 = text.flatMap(lambda x: [s for s in x.split(' ')])
+FlatMaprdd2 = text.flatMap(lambda x: [s for s in x.split(' ')]) # input to both map and flatmap is list and return type is list [map -> lsit of lists , flatmap -> List of int/string]
 print("Flat Mapped Data: \n {0} ".format((FlatMaprdd2.collect())))
 
 

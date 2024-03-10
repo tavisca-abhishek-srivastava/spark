@@ -8,9 +8,8 @@ os.system('cls||system')
 
 conf = SparkConf().setAppName("FlatMap")
 sc = SparkContext(master='local').getOrCreate(conf=conf)
-text = sc.textFile("c:\\tmp\\filterquiz.txt")
-flatmappedrdd = text.flatMap(lambda x: x.split(' '))
-rdd2 = flatmappedrdd.filter(lambda x: not(x.startswith('a')) )
+text = sc.textFile("./quiz.txt")
+rdd2 = text.filter(lambda x: x != 'Great') # if input to filter for any item is true(based upon condition) then that item is added to the output list
 print("Mapped Data: \n {0} ".format(rdd2.collect()))
 
 

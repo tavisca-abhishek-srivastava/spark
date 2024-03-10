@@ -8,8 +8,9 @@ os.system('cls||system')
 
 conf = SparkConf().setAppName("FlatMap")
 sc = SparkContext(master='local').getOrCreate(conf=conf)
-text = sc.textFile("c:\\tmp\\quiz.txt")
-rdd2 = text.filter(lambda x: x != 'Great')
+text = sc.textFile("./quiz.txt")
+flatmappedrdd = text.flatMap(lambda x: x.split(' '))
+rdd2 = flatmappedrdd.filter(lambda x: not(x.startswith('a')) )
 print("Mapped Data: \n {0} ".format(rdd2.collect()))
 
 
