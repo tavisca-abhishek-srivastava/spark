@@ -6,7 +6,7 @@ os.environ['PYSPARK_DRIVER_PYTHON'] = sys.executable
 os.system('cls||system')
 
 def filter_word_with_a(word_to_check):
-    if not(x.startswith('a')):
+    if not(word_to_check.startswith('a')):
             return True
 
 
