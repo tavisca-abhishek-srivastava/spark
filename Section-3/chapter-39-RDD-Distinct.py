@@ -22,7 +22,7 @@ rdd2 = text.flatMap(lambda x:[ int(s) for s in x.split(' ')])
 print("Flat Mapped Data: \n {0} ".format(rdd2.collect()))
 
 distinct_rdd2 = rdd2.distinct()
-print("Unique Data: \n {0} ".format((distinct_rdd2.collect())))
+print("Unique Data: \n {0} ".format(distinct_rdd2.collect()))
 
 
 
