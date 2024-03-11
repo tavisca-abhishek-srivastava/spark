@@ -6,14 +6,14 @@ os.environ['PYSPARK_DRIVER_PYTHON'] = sys.executable
 os.system('cls||system')
 
 
-conf = SparkConf().setAppName("ReduceByKey")
+conf = SparkConf().setAppName("word-count")
 sc = SparkContext(master='local').getOrCreate(conf=conf)
-text = sc.textFile("./abc-41.txt")
+text = sc.textFile("./abc-43.txt")
 rdd2 = text.flatMap(lambda x: x.split(' '))
 rdd3 = rdd2.filter(lambda x: len(x) != 0)
 
 #print("Flat Mapped Data: \n {0} ".format(rdd2.collect()))
-# get occurance of any word
+# Identify occurance of any word
 dict = {}
 rdd4 = rdd3.map(lambda x: (x,1) )
 #print(rdd3.collect())
