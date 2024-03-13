@@ -8,7 +8,7 @@ os.system('cls||system')
 
 conf = SparkConf().setAppName("SaveAsTextFile")
 sc = SparkContext(master='local').getOrCreate(conf=conf)
-rdd = sc.textFile("c:\\tmp\\rdd-distinct.txt")
+rdd = sc.textFile("./abc-45.txt")
 rdd.repartition(5)
 print(rdd.getNumPartitions())
 rdd2 = rdd.flatMap(lambda x: x.split(' '))
