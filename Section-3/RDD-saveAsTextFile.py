@@ -13,7 +13,7 @@ rdd.repartition(5)
 print(rdd.getNumPartitions())
 rdd2 = rdd.flatMap(lambda x: x.split(' '))
 rdd3 = rdd2.map(lambda x: (x,len(x)))
-rdd3.saveAsTextFile("c:\\tmp\\saveastextfile\\abc1")
+rdd3.saveAsTextFile("./saveastextfile/abc1") #(by default there will be 2 files inside abc1 as sprak uses 2 partition to process the data and these 2 partitions will save data in 2 files)
 print(rdd3.getNumPartitions())
 
 
