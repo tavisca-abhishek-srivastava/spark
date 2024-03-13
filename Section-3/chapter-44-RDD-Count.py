@@ -6,9 +6,9 @@ os.environ['PYSPARK_DRIVER_PYTHON'] = sys.executable
 os.system('cls||system')
 
 
-conf = SparkConf().setAppName("GroupByKey")
+conf = SparkConf().setAppName("count")
 sc = SparkContext(master='local').getOrCreate(conf=conf)
-rdd = sc.textFile("c:\\tmp\\rdd-distinct.txt")
+rdd = sc.textFile("./abc-44.txt")
 rdd2 = rdd.flatMap(lambda x: x.split(' '))
 rdd3 = rdd2.filter(lambda x: len(x) != 0)
 
