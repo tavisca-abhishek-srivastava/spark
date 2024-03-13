@@ -9,7 +9,7 @@ os.system('cls||system')
 conf = SparkConf().setAppName("countbyValue")
 sc = SparkContext(master='local').getOrCreate(conf=conf)
 rdd = sc.textFile("./abc-44.txt")
-rdd2 = text.flatMap(lambda x: x.split(' '))
+rdd2 = rdd.flatMap(lambda x: x.split(' '))
 rdd3 = rdd2.filter(lambda x: len(x) != 0)
 
 
