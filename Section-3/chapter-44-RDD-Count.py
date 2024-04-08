@@ -12,13 +12,5 @@ rdd = sc.textFile("./abc-44.txt")
 rdd2 = rdd.flatMap(lambda x: x.split(' '))
 rdd3 = rdd2.filter(lambda x: len(x) != 0)
 
-
-
 #print(rdd3.collect())
 print("Total Number of Words : \n {0} ".format(rdd3.count()))
-
-
-
-
-
-

@@ -23,5 +23,3 @@ print(rdd3.getNumPartitions())
 
 
 
-
-

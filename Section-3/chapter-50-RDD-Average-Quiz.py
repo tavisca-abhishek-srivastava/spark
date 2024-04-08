@@ -7,7 +7,7 @@ os.system('cls||system')
 
 conf = SparkConf().setAppName("Movie Rating")
 sc = SparkContext(master='local').getOrCreate(conf=conf)
-rdd = sc.textFile("c:\\tmp\\movie_ratings.csv")
+rdd = sc.textFile("./movie_ratings.csv")
 rdd1 = rdd.map(lambda x: (x.split(',')[0],(int(x.split(',')[1]),1)))
 print(rdd1.collect())
 print("Movie, It's total review Points and Number of Reviews : \n {0} ".format(rdd1.reduceByKey(lambda x,y: (x[0]+y[0],x[1]+y[1])).collect()))
