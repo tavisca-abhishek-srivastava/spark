@@ -6,4 +6,8 @@ sc = SparkContext(master='local').getOrCreate(conf=conf)
 
 rdd = sc.textFile("./StudentData.csv")
 
+first_row = rdd.first()
+
+
 print(rdd.collect())
+print(first_row)
