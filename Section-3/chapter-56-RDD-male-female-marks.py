@@ -28,3 +28,4 @@ print(total_marks_male_rdd.collect())
 
 rdd2_map_gender_number = rdd1.map( lambda x : (x.split(',')[1] , int(x.split(',')[5])))
 total_marks_male_female_rdd = rdd2_map_gender_number.reduceByKey(lambda x , y: (int(x)+int(y)))
+print(total_marks_male_female_rdd.collect())
