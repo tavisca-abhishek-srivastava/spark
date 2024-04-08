@@ -6,12 +6,12 @@ sc = SparkContext(master='local').getOrCreate(conf=conf)
 
 rdd = sc.textFile("./StudentData.csv")
 
-first_row = rdd.first()
+header = rdd.first()
 
 
 print(rdd.collect())
 print(first_row)
-rdd1 = rdd.filter(lambda x: x!= first_row)
+rdd1 = rdd.filter(lambda x: x!= header)
 
 rdd2 = rdd.filter(lambda x: x.split(',')[1] == "male")
 
