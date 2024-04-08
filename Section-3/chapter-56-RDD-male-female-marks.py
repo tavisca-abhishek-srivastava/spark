@@ -20,4 +20,4 @@ rdd2_male_numbers = rdd2.map( lambda x : (x.split(',')[1] , x.split(',')[5]))
 
 rdd3_female_numbers = rdd3.map( lambda x : (x.split(',')[1] , x.split(',')[5]))
 
-print(rdd2_male_numbers)
+print(rdd2_male_numbers.collect())
