@@ -11,7 +11,7 @@ first_row = rdd.first()
 
 print(rdd.collect())
 print(first_row)
-rdd1 = rdd.filter
+rdd1 = rdd.filter(lambda x: x!= first_row)
 print(rdd1.collect())
 
 print("Total number of students {0}".format(rdd1.count()))
