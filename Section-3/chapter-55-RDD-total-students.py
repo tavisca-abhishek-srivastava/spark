@@ -11,3 +11,5 @@ first_row = rdd.first()
 
 print(rdd.collect())
 print(first_row)
+rdd1 = rdd.filter
+print(rdd1.collect())
