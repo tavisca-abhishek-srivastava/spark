@@ -8,7 +8,7 @@ rdd = sc.textFile("./StudentData.csv")
 
 header = rdd.first()
 rdd1 = rdd.filter(lambda x: x!= header)
-rdd2 = rdd1.map(lambda x: (x.split(',')[3] , 1))
+rdd2 = rdd1.map(lambda x: (x.split(',')[3] , x.split(',')[5]))
 rdd3 = rdd2.reduceByKey(lambda x , y : x+y)
 
-print("enrollment per course {0}".format(rdd3.collect()))
+print("Total marks per course {0}".format(rdd3.collect()))
