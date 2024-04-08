@@ -13,7 +13,7 @@ print(rdd.collect())
 print(header)
 rdd1 = rdd.filter(lambda x: x!= header)
 
-rdd2 = rdd.filter(lambda x: x.split(',')[1] == "male")
+rdd2 = rdd.filter(lambda x: x.split(',')[1] == "Male")
 
 
 print("Total number of male students {0}".format(rdd2.count()))
