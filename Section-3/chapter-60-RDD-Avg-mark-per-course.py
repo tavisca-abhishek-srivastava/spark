@@ -14,4 +14,4 @@ rdd3 = rdd2.reduceByKey(lambda x , y : (x[0]+y[0],x[1]+y[1])) # x is tuple and y
 rdd4 = rdd3.map(lambda x : (x[0] , x[1][0]/x[1][1]))
 
 
-print("Avg mark per course {0}".format(rdd3.collect()))
+print("Avg mark per course {0}".format(rdd4.collect()))
