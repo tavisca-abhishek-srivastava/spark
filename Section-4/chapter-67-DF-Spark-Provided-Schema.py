@@ -1,4 +1,4 @@
-from pyspark.sql.types import StructType,StructField , IntegerType,StringType
+from pyspark.sql.types import  StructType , StructField, IntegerType , StringType
 from pyspark.sql import SparkSession
 import os
 import sys , math , random
@@ -6,6 +6,7 @@ os.environ['PYSPARK_PYTHON'] = sys.executable
 os.environ['PYSPARK_DRIVER_PYTHON'] = sys.executable
 os.system('cls||system')
 
+##### structType represents a row and structFiled specify a column
 SparkSchema = StructType([
                             StructField("age", IntegerType(),True),
                             StructField("gender", StringType(),True),
@@ -16,8 +17,10 @@ SparkSchema = StructType([
                             StructField("email", StringType(),True),
                         ])
 
-ss = SparkSession.builder.appName("First DF App").getOrCreate()
-#below option is for Provided schmea
-df = ss.read.options( header='True', delemeter=',').schema(SparkSchema).csv("C:\\Users\\abhishek.srivastava\\vscode\work\\Spark\\Setion-4\\StudentData.csv")
+
+ss = SparkSession.builder.appName("my provided schema").getOrCreate()
+#####below option is for Provided schmea
+df = ss.read.options( header='True', delemeter=',').schema(SparkSchema).csv("./StudentData.csv")
+
 print((df.show()))
 print((df.printSchema()))
