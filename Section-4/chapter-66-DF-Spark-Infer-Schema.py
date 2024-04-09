@@ -8,6 +8,6 @@ os.system('cls||system')
 
 ss = SparkSession.builder.appName("First DF App").getOrCreate()
 #below option is to infer schmea
-df = ss.read.options(inferSchema = 'True' , header='True', delemeter=',').csv("C:\\Users\\abhishek.srivastava\\vscode\work\\Spark\\Setion-4\\StudentData.csv")
+df = ss.read.options(inferSchema = 'True' , header='True', delemeter=',').csv("./StudentData.csv")
 print((df.show()))
 print((df.printSchema()))
