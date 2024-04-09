@@ -14,4 +14,4 @@ rdd_min = rdd2.reduceByKey(lambda x , y : (x if x < y else y))
 
 
 print("min mark per course {0}".format(rdd_min.collect()))
-print("min mark per course {0}".format(rdd_max.collect()))
+print("max mark per course {0}".format(rdd_max.collect()))
