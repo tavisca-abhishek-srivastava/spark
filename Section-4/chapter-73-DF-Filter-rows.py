@@ -26,7 +26,7 @@ print("Courses starting with D {0}".format(df3.show()))
 
 # using 'endswith' operator to check the condition for  values ending with some string/char
 df4 = df.filter((df.name.endswith('e')))
-print("Names ending with D {0}".format(df4.show()))
+print("Names ending with e {0}".format(df4.show()))
 
 # using 'contains' operator to check the condition for  values contains string/char
 df5 = df.filter((df.name.contains('se')))
