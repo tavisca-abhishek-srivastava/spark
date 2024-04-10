@@ -13,14 +13,20 @@ df = ss.read.options( header='True', delemeter=',').csv("./StudentData.csv")
 print(df.printSchema())
 
 # Here changed the type of roll to string in Dataframe
-df22 = df.withColumn("roll", col("roll").cast("Integer"))
+# df22 = df.withColumn("roll", col("roll").cast("Integer"))
+df22 = df.withColumn("roll",(col("roll")+30).cast(IntegerType()))
 print(df22.printSchema())
 
-#Increment value of a particular column without iterating entire dataset and breaking the row in list and also adding new column with name Updated marks" with value of marks column + 20
+### adding new column with name Updated marks" with value of marks column + 20
+### Increment value of a particular column without iterating entire dataset and breaking the row in list
 df1 = df22.withColumn("Updated marks" ,(col("marks") + 20).cast(IntegerType()))  # without cast type of "Updated marks will be double"
 print(df1.printSchema())
 # Add/Create a new Column on the fly in DataFrame
-df2 = df1.withColumn("Min Passing mark",  fn.lit(33))
+df2 = df1.withColumn("Min Passing mark",  fn.lit(33))   ### lit is literal which allows to put any fixed value in a column for all rows
 df3 = df2.withColumn("Country",  fn.lit("India"))
 print(df3.show())
 #print(df1.printSchema())
+
+### or 
+df21 = df1.withColumn("Min Passing mark",  fn.lit(33)).withColumn("Country",  fn.lit("India"))
+print(df21.show())
