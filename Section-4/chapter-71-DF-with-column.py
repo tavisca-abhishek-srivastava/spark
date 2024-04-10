@@ -16,8 +16,8 @@ print(df.printSchema())
 df22 = df.withColumn("roll", col("roll").cast("Integer"))
 print(df22.printSchema())
 
-#Increment value of a particular column without iterating entire dataset and breaking the row in list
-df1 = df22.withColumn("Updated marks" ,(col("marks") + 20))
+#Increment value of a particular column without iterating entire dataset and breaking the row in list and also adding new column with name Updated marks" with value of marks column + 20
+df1 = df22.withColumn("Updated marks" ,(col("marks") + 20).cast(IntegerType()))
 
 # Add/Create a new Column on the fly in DataFrame
 df2 = df1.withColumn("Min Passing mark",  fn.lit(33))
