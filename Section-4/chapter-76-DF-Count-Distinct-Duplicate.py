@@ -9,7 +9,7 @@ os.system('cls||system')
 
 ss = SparkSession.builder.appName("First DF App").getOrCreate()
 #below option is for Provided schmea
-df = ss.read.options( header='True', delemeter=',',inferSchema='True').csv("C:\\Users\\abhishek.srivastava\\vscode\work\\Spark\\Setion-4\\StudentData.csv")
+df = ss.read.options( header='True', delemeter=',',inferSchema='True').csv("./StudentData.csv")
 os.system('cls||system')
 # used or '|' operator 
 df1 = df.withColumn("Total_Marks",fn.lit(120))
