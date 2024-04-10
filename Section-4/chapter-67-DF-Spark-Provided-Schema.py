@@ -7,7 +7,7 @@ os.environ['PYSPARK_DRIVER_PYTHON'] = sys.executable
 os.system('cls||system')
 
 ##### structType represents a row and structFiled specify a column
-SparkSchema = StructType([
+customSparkSchema = StructType([
                             StructField("age", IntegerType(),True),
                             StructField("gender", StringType(),True),
                             StructField("name", StringType(),True),
@@ -20,7 +20,7 @@ SparkSchema = StructType([
 
 ss = SparkSession.builder.appName("my provided schema").getOrCreate()
 #####below option is for Provided schmea
-df = ss.read.options( header='True', delemeter=',').schema(SparkSchema).csv("./StudentData.csv")
+df = ss.read.options( header='True', delemeter=',').schema(customSparkSchema).csv("./StudentData.csv")
 
 print((df.show()))
 print((df.printSchema()))

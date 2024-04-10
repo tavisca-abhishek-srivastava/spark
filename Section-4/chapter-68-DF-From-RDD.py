@@ -22,7 +22,7 @@ SparkSchema = StructType([
 conf = SparkConf().setAppName("RDD2DF")
 sc = SparkContext(master='local').getOrCreate(conf=conf)
 
-rdd = sc.textFile("C:\\Users\\abhishek.srivastava\\vscode\work\\Spark\\Setion-4\\StudentData.csv")
+rdd = sc.textFile("./StudentData.csv")
 header = rdd.first()
 
 rdd1 = rdd.filter(lambda x: x != header)

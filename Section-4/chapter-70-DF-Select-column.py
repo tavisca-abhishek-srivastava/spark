@@ -31,7 +31,7 @@ print((df.select(col("roll"),col("name")).show()))
 print((df.select('*').show()))
 
 # to list columns using df.columns
-print(": \n {0} ".format((df.select(df.columns[0:3]).show())))
+print("All columns : \n {0} ".format((df.columns)))
 
 # filtering out columns by creating new DataFrame
 df1 = df.select(df.columns[0:4])
