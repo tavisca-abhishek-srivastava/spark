@@ -18,7 +18,7 @@ SparkSchema = StructType([
 
 ss = SparkSession.builder.appName("First DF App").getOrCreate()
 #below option is for Provided schmea
-df = ss.read.options( header='True', delemeter=',').schema(SparkSchema).csv("C:\\Users\\abhishek.srivastava\\vscode\work\\Spark\\Setion-4\\StudentData.csv")
+df = ss.read.options( header='True', delemeter=',').schema(SparkSchema).csv("./StudentData.csv")
 print((df.select("name","age").show()))
 # or 
 print((df.select(df.name,df.age).show()))
