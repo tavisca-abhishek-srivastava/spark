@@ -18,6 +18,7 @@ os.environ['PYSPARK_DRIVER_PYTHON'] = sys.executable
 os.system('cls||system')
 
 spark_session = SparkSession.builder.appName("First DF App").getOrCreate()
+spark_session.sparkContext.setLogLevel('WARN')
 df = spark_session.read.option("header",True).csv("./StudentData.csv")
 print(df.show())
 

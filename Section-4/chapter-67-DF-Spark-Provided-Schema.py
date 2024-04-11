@@ -19,6 +19,7 @@ customSparkSchema = StructType([
 
 
 ss = SparkSession.builder.appName("my provided schema").getOrCreate()
+ss.sparkContext.setLogLevel('WARN')
 #####below option is for Provided schmea
 df = ss.read.options( header='True', delemeter=',').schema(customSparkSchema).csv("./StudentData.csv")
 

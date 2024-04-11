@@ -25,6 +25,7 @@ os.system('cls||system')
 # print(df4.show())
 
 spark_session = SparkSession.builder.appName("groupBy").getOrCreate()
+spark_session.sparkContext.setLogLevel('WARN')
 ## set logging level
 spark_session.sparkContext.setLogLevel('WARN')
 df = spark_session.read.options(delemeter=",",inferSchema="True",header="True").csv("./StudentData.csv")

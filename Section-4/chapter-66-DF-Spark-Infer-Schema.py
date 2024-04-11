@@ -7,6 +7,7 @@ os.system('cls||system')
 
 
 ss = SparkSession.builder.appName("First DF App").getOrCreate()
+ss.sparkContext.setLogLevel('WARN')
 #below option is to infer schmea
 df = ss.read.options(inferSchema = 'True' , header='True', delemeter=',').csv("./StudentData.csv")
 print((df.show()))

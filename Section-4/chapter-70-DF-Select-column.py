@@ -17,6 +17,7 @@ SparkSchema = StructType([
                         ])
 
 ss = SparkSession.builder.appName("First DF App").getOrCreate()
+ss.sparkContext.setLogLevel('WARN')
 #below option is for Provided schmea
 df = ss.read.options( header='True', delemeter=',').schema(SparkSchema).csv("./StudentData.csv")
 print((df.select("name","age").show()))

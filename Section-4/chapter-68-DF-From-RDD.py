@@ -32,6 +32,7 @@ rdd3 = rdd2.map(lambda x: [int(x[0]),x[1],x[2],x[3],x[4],int(x[5]),x[6] ])
 
 # For DF we need SparkSession
 spark_session = SparkSession.builder.appName("RDD2DF").getOrCreate()
+spark_session.sparkContext.setLogLevel('WARN')
 df = spark_session.createDataFrame(rdd3,schema=SparkSchema)
 os.system('cls||system')
 print(df.show())

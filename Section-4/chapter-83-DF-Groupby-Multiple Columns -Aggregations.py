@@ -37,11 +37,13 @@ df6 = df.groupBy('age').avg('marks')
 print(df6.show())
 
 # groupby + sorting
-df7 = df.groupBy('course','gender').count().sort(df.course) # groupby will return groupby object so we need to use count
+df7 = df.groupBy('course','gender').count().sort(df.course) # groupby will return GroupedData object so we need to use count and then we can sort the output based upon course
 print(df7.show())
 
-# to use multiple aggregation as columns in single DataFrame
-df8 = df.groupBy('course','gender').agg(count('*').alias("total_enrollment"),min("marks"),max("marks"), avg("marks")).sort('course')
-print(df8.show())
+##### to use multiple aggregation as columns in single DataFrame
+# df8 = df.groupBy('course','gender').agg(count('*').alias("total_enrollment"),min("marks"),max("marks"), avg("marks")).sort('course')
+# print(df8.show())
 
+df8 = df.groupBy("course","gender").agg(count("*").alias("male/female course wise"),min("marks").alias("minimum marks for male/female course wise"),max("marks").alias("maximum marks for male/female course wise"),avg("marks").alias("avg marks for male/female course wise")).sort(df.course)
+print(df8.show())
 
