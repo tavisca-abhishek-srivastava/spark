@@ -45,6 +45,6 @@ print(df7.show())
 # df8 = df.groupBy('course','gender').agg(count('*').alias("total_enrollment"),min("marks"),max("marks"), avg("marks")).sort('course')
 # print(df8.show())
 
-df8 = df.groupBy("course","gender").agg(count("*").alias("male/female course wise"),min("marks").alias("minimum marks for male/female course wise"),max("marks").alias("maximum marks for male/female course wise"),round(avg("marks")).alias("avg marks for male/female course wise")).sort(df.course)
+df8 = df.groupBy("course","gender").agg(count("*").alias("male/female course wise"),min("marks").alias("minimum marks for male/female course wise"),max("marks").alias("maximum marks for male/female course wise"),avg("marks").alias("avg marks for male/female course wise")).sort(df.course)
 print(df8.show())
 
