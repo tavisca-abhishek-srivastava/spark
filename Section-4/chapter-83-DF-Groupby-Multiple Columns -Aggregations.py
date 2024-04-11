@@ -10,8 +10,9 @@ os.environ['PYSPARK_DRIVER_PYTHON'] = sys.executable
 os.system('cls||system')
 
 ss = SparkSession.builder.appName("First DF App").getOrCreate()
+ss.sparkContext.setLogLevel('WARN')
 #below option is for Provided schmea
-df = ss.read.options( header='True', delemeter=',',inferSchema='True').csv("C:\\Users\\abhishek.srivastava\\vscode\work\\Spark\\Setion-4\\StudentData.csv")
+df = ss.read.options( header='True', delemeter=',',inferSchema='True').csv("./StudentData.csv")
 os.system('cls||system')
 
 # apart from columns in group by all other columns will be part of aggregate function which you want to display
@@ -44,6 +45,6 @@ print(df7.show())
 # df8 = df.groupBy('course','gender').agg(count('*').alias("total_enrollment"),min("marks"),max("marks"), avg("marks")).sort('course')
 # print(df8.show())
 
-df8 = df.groupBy("course","gender").agg(count("*").alias("male/female course wise"),min("marks").alias("minimum marks for male/female course wise"),max("marks").alias("maximum marks for male/female course wise"),avg("marks").alias("avg marks for male/female course wise")).sort(df.course)
+df8 = df.groupBy("course","gender").agg(count("*").alias("male/female course wise"),min("marks").alias("minimum marks for male/female course wise"),max("marks").alias("maximum marks for male/female course wise"),round(avg("marks")).alias("avg marks for male/female course wise")).sort(df.course)
 print(df8.show())
 
