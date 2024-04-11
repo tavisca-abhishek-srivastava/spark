@@ -32,9 +32,9 @@ df1 = df.withColumn("Total_Salary", computer_total_salary_DUF(df.salary,df.bonus
 print(df1.show())
 
 #### or 
-@udf(returnType=IntegerType())
+@udf(returnType=IntegerType())     #### it is a decorator
 def get_total_salary(salary , bonus):
     return salary + bonus
 
-df2 = df.withColumn("Total_Salary", get_total_salary(df.salary,df.bonus))
+df2 = df.withColumn("Total_Salary", get_total_salary(df.salary,df.bonus))   # here we can directly pass function name
 print(df2.show())
