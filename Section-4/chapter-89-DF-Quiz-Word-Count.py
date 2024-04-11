@@ -12,5 +12,6 @@ ss.sparkContext.setLogLevel('WARN')
 #below option is for Provided schmea
 df = ss.read.text("./WordData.txt")
 os.system('cls||clear')
-df1 = df.groupBy("value").agg(count("*").alias("occurance of word"))
+#df1 = df.groupBy("value").agg(count("*").alias("occurance of word"))
+df1 = df.groupBy("value").count()
 print(df1.show())
