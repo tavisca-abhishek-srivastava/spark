@@ -21,7 +21,8 @@ print(df1.show())
 # filtering 
 
 df2 = df.filter(df.gender == 'Male')
-df3 = df2.groupBy("course","gender").agg(count('*').alias("Total Enrollment"))
+df3 = df2.groupBy("course","gender").agg(count('*').alias("Total Enrollment for Course"))
+print("Courses where total number of Entollment is > 70 \n")
 df4 = df3.filter(col("Total Enrollment") > 70)
 print(df4.show())
 
