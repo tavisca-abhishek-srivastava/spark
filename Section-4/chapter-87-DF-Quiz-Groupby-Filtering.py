@@ -10,6 +10,7 @@ os.environ['PYSPARK_DRIVER_PYTHON'] = sys.executable
 os.system('cls||clear')
 
 ss = SparkSession.builder.appName("First DF App").getOrCreate()
+ss.sparkContext.setLogLevel('WARN')
 #below option is for Provided schmea
 df = ss.read.options( header='True', delemeter=',',inferSchema='True').csv("./StudentData.csv")
 os.system('cls||clear')
