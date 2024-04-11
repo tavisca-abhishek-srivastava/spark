@@ -15,3 +15,4 @@ df = ss.read.options( header='True', delemeter=',').csv("./StudentData.csv")
 df1 = df.select("age",col("gender").alias("Male/Female"))
 
 print(df1.show())
+

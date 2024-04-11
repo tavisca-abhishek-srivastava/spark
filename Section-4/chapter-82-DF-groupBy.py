@@ -27,7 +27,16 @@ os.system('cls||system')
 spark_session = SparkSession.builder.appName("groupBy").getOrCreate()
 df = spark_session.read.options(delemeter=",",inferSchema="True",header="True").csv("./StudentData.csv")
 df1 = df.groupBy("gender").sum("marks")
-print(df1.show)
+print(df1.show())
 
+## how many male and female are enrolled
+gender_wise_count_df = df.groupBy("gender").count()
+print(gender_wise_count_df.show())
 
+## how many male and female are enrolled for each course
+course_wise_enrollment_df = df.groupBy("course").count()
+print(course_wise_enrollment_df.show())
 
+## sum of marks for each course
+course_wise_total_marks_df = df.groupBy("course").sum("marks").alias("Total Marks")
+print(course_wise_total_marks_df.show())
