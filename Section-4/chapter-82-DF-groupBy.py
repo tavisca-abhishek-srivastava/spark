@@ -25,6 +25,8 @@ os.system('cls||system')
 # print(df4.show())
 
 spark_session = SparkSession.builder.appName("groupBy").getOrCreate()
+## set logging level
+spark_session.sparkContext.setLogLevel('WARN')
 df = spark_session.read.options(delemeter=",",inferSchema="True",header="True").csv("./StudentData.csv")
 df1 = df.groupBy("gender").sum("marks")
 print(df1.show())
@@ -40,3 +42,12 @@ print(course_wise_enrollment_df.show())
 ## sum of marks for each course
 course_wise_total_marks_df = df.groupBy("course").sum("marks")
 print(course_wise_total_marks_df.show())
+
+## min marks male and female
+gender_wise_min_marks_df = df.groupBy("gender").min("marks")
+print(gender_wise_min_marks_df.show())
+
+
+## max marks male and female
+gender_wise_max_marks_df = df.groupBy("gender").max("marks")
+print(gender_wise_max_marks_df.show())
