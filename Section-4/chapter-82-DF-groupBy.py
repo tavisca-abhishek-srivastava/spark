@@ -38,5 +38,5 @@ course_wise_enrollment_df = df.groupBy("course").count()
 print(course_wise_enrollment_df.show())
 
 ## sum of marks for each course
-course_wise_total_marks_df = df.groupBy("course").sum("marks").alias("Total Marks")
+course_wise_total_marks_df = df.groupBy("course").sum("marks")
 print(course_wise_total_marks_df.show())
