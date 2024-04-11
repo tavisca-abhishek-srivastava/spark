@@ -16,7 +16,7 @@ ss = SparkSession.builder.appName("First DF App").getOrCreate()
 ss.sparkContext.setLogLevel('WARN')
 #below option is for Provided schmea
 df = ss.read.options( header='True', delemeter=',',inferSchema='True').csv("./OfficeData.csv")
-os.system('cls||system')
+os.system('cls||clear')
 
 # TotalSalaryUDF = udf(lambda x , y : get_total_salary(x , y),IntegerType())
 
@@ -36,5 +36,5 @@ print(df1.show())
 def get_total_salary(salary , bonus):
     return salary + bonus
 
-df1 = df.withColumn("Total_Salary", get_total_salary(df.salary,df.bonus))
-print(df1.show())
+df2 = df.withColumn("Total_Salary", get_total_salary(df.salary,df.bonus))
+print(df2.show())
