@@ -3,7 +3,7 @@ import os
 import math , random , sys
 os.environ['PYSPARK_PYTHON'] = sys.executable
 os.environ['PYSPARK_DRIVER_PYTHON'] = sys.executable
-os.system('cls||system')
+os.system('cls||clear')
 
 
 ss = SparkSession.builder.appName("First DF App").getOrCreate()

@@ -6,7 +6,7 @@ import sys , math , random
 os.environ['PYSPARK_PYTHON'] = sys.executable
 os.environ['PYSPARK_DRIVER_PYTHON'] = sys.executable
 os.environ['HADOOP_HOME'] = "C:\\Windows\\System32"
-os.system('cls||system')
+os.system('cls||clear')
 
 SparkSchema = StructType([
                             StructField("age", IntegerType(),True),

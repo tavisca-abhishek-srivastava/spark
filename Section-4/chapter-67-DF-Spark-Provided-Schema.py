@@ -4,7 +4,7 @@ import os
 import sys , math , random
 os.environ['PYSPARK_PYTHON'] = sys.executable
 os.environ['PYSPARK_DRIVER_PYTHON'] = sys.executable
-os.system('cls||system')
+os.system('cls||clear')
 
 ##### structType represents a row and structFiled specify a column
 customSparkSchema = StructType([

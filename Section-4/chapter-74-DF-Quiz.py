@@ -5,13 +5,13 @@ import os
 import sys , math , random
 os.environ['PYSPARK_PYTHON'] = sys.executable
 os.environ['PYSPARK_DRIVER_PYTHON'] = sys.executable
-os.system('cls||system')
+os.system('cls||clear')
 
 ss = SparkSession.builder.appName("First DF App").getOrCreate()
 ss.sparkContext.setLogLevel('WARN')
 #below option is for Provided schmea
 df = ss.read.options( header='True', delemeter=',',inferSchema='True').csv("./StudentData.csv")
-os.system('cls||system')
+os.system('cls||clear')
 # used or '|' operator 
 df1 = df.withColumn("Total_Marks",fn.lit(120))
 df2 = df1.withColumn("marks",col("marks").cast('Integer'))
