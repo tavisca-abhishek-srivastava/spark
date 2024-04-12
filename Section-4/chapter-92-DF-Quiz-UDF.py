@@ -8,6 +8,7 @@ os.environ['PYSPARK_PYTHON'] = sys.executable
 os.environ['PYSPARK_DRIVER_PYTHON'] = sys.executable
 os.system('cls||system')
 
+@udf(returnType=DoubleType())
 def get_total_salary(salary , bonus,state):
     if state == 'NY':
         return salary *1.1 + bonus * 1.05
@@ -17,10 +18,12 @@ def get_total_salary(salary , bonus,state):
 
 ss = SparkSession.builder.appName("First DF App").getOrCreate()
 #below option is for Provided schmea
-df = ss.read.options( header='True', delemeter=',',inferSchema='True').csv("C:\\Users\\abhishek.srivastava\\vscode\work\\Spark\\Setion-4\\OfficeData.csv")
-os.system('cls||system')
+df = ss.read.options( header='True', delemeter=',',inferSchema='True').csv("./OfficeData.csv")
+os.system('cls||clear')
 
-TotalSalaryUDF = udf(lambda x , y, z : get_total_salary(x , y, z),DoubleType())
+# TotalSalaryUDF = udf(lambda x , y, z : get_total_salary(x , y, z),DoubleType())
 
-df1 = df.withColumn("Total_Salary",TotalSalaryUDF(df.salary , df.bonus , df.state))
+df1 = df.withColumn("Total_Salary",get_total_salary(df.salary , df.bonus , df.state))
+print(df1.show())
+
 print(df1.show())
