@@ -15,5 +15,5 @@ rdd.saveAsTextFiles("./sparkstreaming/output")
 
 
 ssc.start()
-ssc.awaitTermination(100)
+ssc.awaitTermination(100000)
 
