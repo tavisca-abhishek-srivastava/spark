@@ -15,7 +15,7 @@ ss.sparkContext.setLogLevel('WARN')
 df = ss.read.options( header='True', delemeter=',',inferSchema='True').csv("./StudentData.csv")
 os.system('cls||clear')
 
-df.createOrReplaceGlobalTempView("Student")
+df.createOrReplaceTempView("Student")
 
 record_df = ss.sql("select * from Student")
 
