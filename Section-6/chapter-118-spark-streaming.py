@@ -14,6 +14,10 @@ rdd.pprint()
 rdd.saveAsTextFiles("./sparkstreaming/output")
 
 
+rdd1 = rdd.map(lambda x : (x,1))
+rdd2 = rdd1.reduceByKey(lambda x ,y : x+y)
+rdd2.pprint()
+
 ssc.start()
 ssc.awaitTermination(100000)
 
