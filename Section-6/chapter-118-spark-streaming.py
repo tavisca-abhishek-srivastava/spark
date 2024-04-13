@@ -9,14 +9,10 @@ ssc = StreamingContext(scontext,1)
 
 rdd = ssc.textFileStream("./sparkstreaming/input")
 
-rdd.pprint()
-
-rdd.saveAsTextFiles("./sparkstreaming/output")
-
-
 rdd1 = rdd.map(lambda x : (x,1))
 rdd2 = rdd1.reduceByKey(lambda x ,y : x+y)
 rdd2.pprint()
+rdd2.saveAsTextFiles("./sparkstreaming/output")
 
 ssc.start()
 ssc.awaitTermination(100000)
