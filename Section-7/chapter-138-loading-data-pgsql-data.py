@@ -2,6 +2,7 @@ from pyspark.sql import SparkSession , functions as f
 from pyspark.sql.functions import lit , col , explode
 
 ##### wget https://jdbc.postgresql.org/download/postgresql-42.7.3.jar
+#### copy  "postgresql-42.7.3.jar" to "spark-3.4.3-bin-hadoop3/jars" folder
 ss = SparkSession.builder.config("spark.driver.extraClassPath", "/tmp/postgresql-42.7.3.jar").appName("First ETL").getOrCreate()
 #ss = SparkSession.builder.config("spark.jars.packages", "/tmp/postgresql-42.7.3.jar").appName("First ETL").getOrCreate()
 ss.sparkContext.setLogLevel("WARN")
@@ -15,7 +16,7 @@ url = "jdbc:postgresql://serverless-db.cluster-cfihahod2vsa.us-east-1.rds.amazon
 user = "postgres"
 password = "welcome1234"
 table = "students.pyspark.pyspark_injest1"    ### make sure that this table doesn't exist 
-df4.write.format("jdbc").option("driver",driver).option("url", url).option("user",user).option("password", password).option("dbtable", table).option("mode","append")
+df4.write.format("jdbc").option("driver",driver).option("url", url).option("user",user).option("password", password).option("dbtable", table).option("mode","append").save()
 
 print(df.show())
 
