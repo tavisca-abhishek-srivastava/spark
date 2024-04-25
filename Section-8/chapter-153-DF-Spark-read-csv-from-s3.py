@@ -9,7 +9,7 @@ os.system('cls||clear')
 
 ss = SparkSession.builder.appName("cdc").getOrCreate()
 
-csvname = "s3://cdc-poc-iac/Employee/ftc/LOAD00000001.csv"
+csvname = "s3a://cdc-poc-iac/Employee/ftc/LOAD00000001.csv"
 #below option is for Provided schmea
 df = ss.read.options( delemeter=',',inferSchema='True').csv(csvname)
 df1 = df.withColumnRenamed("_c0" , "id").withColumnRenamed("_c1" , "FullName").withColumnRenamed("_c2" , "City")
