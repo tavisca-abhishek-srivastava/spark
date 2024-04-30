@@ -4,7 +4,7 @@ from pyspark.sql.types import StructType,StructField , IntegerType,StringType
 from pyspark.sql import SparkSession , functions as fn
 from pyspark.sql.functions import col , when    
 import os
-import sys , math , random
+import sys , math , random , time
 
 # os.system('cls||clear')
 
@@ -13,7 +13,7 @@ ss.sparkContext.setLogLevel('WARN')
 
 full_load_csvname = "./LOAD00000001.csv"
 cdc_csv = "./20230322-042944267.csv"
-final_output_csvname = "./finaloutput"
+final_output_csvname = "./finaloutput/final.csv"
 
 ######################## below option is for Provided schmea
 
@@ -22,6 +22,7 @@ df1 = df.withColumnRenamed("_c0" , "id").withColumnRenamed("_c1" , "FullName").w
 # os.system('cls||clear')
 # used or '|' operator 
 df1.write.mode("overwrite").csv(final_output_csvname)
+time.sleep(20)
 #print(df1.show(df1.count(), False))
 
 #########################  
@@ -32,6 +33,8 @@ cdc_df2 = cdc_df.withColumnRenamed("_c1" , "id").withColumnRenamed("_c2" , "Full
 
 ############################ read final_output_csvname
 final_output_df = ss.read.options( delemeter=',',inferSchema='True').csv(final_output_csvname)
+print("able to read now after full load write {0}".format(final_output_csvname))
+time.sleep(20)
 final_output_df = final_output_df.withColumnRenamed("_c0" , "id").withColumnRenamed("_c1" , "FullName").withColumnRenamed("_c2" , "City")
 #print(final_output_df.show(df1.count(), False))
 #######################################
@@ -54,8 +57,11 @@ for row in cdc_df2.collect():
         #print("It is Delete")
         #print("Deleting {0}".format(row))
         final_output_df = final_output_df.filter( final_output_df.id != row["id"])
-        
+
+
+final_output_df.write.mode("overwrite").csv("./finaloutput/final1.csv")
+final_output_df = ss.read.options( delemeter=',',inferSchema='True').csv("./finaloutput/final1.csv")
 final_output_df.write.mode("overwrite").csv(final_output_csvname)
 
-print(final_output_df.show(final_output_df.count(), False))
 
+print(final_output_df.show(final_output_df.count(), False))

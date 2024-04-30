@@ -13,6 +13,7 @@ ss = SparkSession.builder.appName("cdc").getOrCreate()
 ss.sparkContext.setLogLevel('WARN')
 
 inputfilepath = f"s3a://{bucket}/{filename}"
+finalfilepathtemp = f"s3a://cdc-poc-iac-target/outputtemp"
 finalfilepath = f"s3a://cdc-poc-iac-target/output"
 
 if "LOAD" in filename:
@@ -45,6 +46,10 @@ else:
             #print("Deleting {0}".format(row))
             final_output_df = final_output_df.filter( final_output_df.id != row["id"])
 
+    final_output_df.write.mode("overwrite").csv(finalfilepathtemp)
+    final_output_df = ss.read.options( delemeter=',',inferSchema='True').csv(finalfilepathtemp)
     final_output_df.write.mode("overwrite").csv(finalfilepath)
+
+    
     print(final_output_df.show(final_output_df.count(), False))
 
