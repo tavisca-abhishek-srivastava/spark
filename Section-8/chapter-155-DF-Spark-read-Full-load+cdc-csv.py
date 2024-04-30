@@ -42,9 +42,6 @@ for row in cdc_df2.collect():
         final_output_df = final_output_df.withColumn("FullName", when(final_output_df["id"] == row["id"], row["FullName"]).otherwise(final_output_df["FullName"]))
         final_output_df = final_output_df.withColumn("City", when(final_output_df["id"] == row["id"], row["City"]).otherwise(final_output_df["City"]))
 
-
-
-
     if(row["Action"] == 'I'):
         print("Inserting {0}".format(row))
         cdc_row = [list(row[1:])]
@@ -58,7 +55,7 @@ for row in cdc_df2.collect():
         #print("Deleting {0}".format(row))
         final_output_df = final_output_df.filter( final_output_df.id != row["id"])
         
-
+final_output_df.write.mode("overwrite").csv(final_output_csvname)
 
 print(final_output_df.show(final_output_df.count(), False))
 
