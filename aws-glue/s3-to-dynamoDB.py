@@ -21,8 +21,6 @@ AmazonS3_node1671617715902 = glueContext.create_dynamic_frame.from_options(
     },
     transformation_ctx="AmazonS3_node1671617715902",
 )
-AmazonS3_node1671617715902.printSchema()
-AmazonS3_node1671617715902.show()
 # Script generated for node Change Schema (Apply Mapping)
 ChangeSchemaApplyMapping_node1671617944126 = ApplyMapping.apply(
     frame=AmazonS3_node1671617715902,
