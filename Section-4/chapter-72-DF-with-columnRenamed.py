@@ -13,6 +13,7 @@ ss.sparkContext.setLogLevel('WARN')
 df = ss.read.options( header='True', delemeter=',').csv("./StudentData.csv")
 
 #Rename existing Column on the fly in DataFrame
-df1 = df.withColumnRenamed("gender",  "Male/Female")
+# df1 = df.withColumnRenamed("gender",  "Male/Female")
+df1 = df.withColumnRenamed("gender","Male/Female")
 
 print(df1.show())
