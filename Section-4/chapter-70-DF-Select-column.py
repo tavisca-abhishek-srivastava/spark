@@ -10,13 +10,10 @@ os.system('cls||clear')
 conf = SparkConf()
 conf.setAll(
         [
-            (
-                "spark.master",
-                "spark://spark-master:7077"
-            ),
-            ("spark.driver.host", "local[*]"),
+            ("spark.master","local[*]"),
+            ("spark.driver.host", "ip-10-238-45-248.ec2.internal"),
             ("spark.submit.deployMode", "client"),
-            ("spark.driver.bindAddress", "0.0.0.0"),
+            
             ("spark.app.name", "First DF App"),
         ] 
     )
