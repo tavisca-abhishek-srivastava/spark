@@ -35,12 +35,12 @@ SparkSchema = StructType([
 # spark.sparkContext.stop()
 # ss = SparkSession.builder.appName("First DF App").getOrCreate()
 ss = SparkSession.builder.config(conf=conf).getOrCreate()
-ss.sparkContext
-ss.sparkContext.stop()
-ss.sparkContext
-ss = SparkSession.builder.config(conf=conf).getOrCreate()
-ss.sparkContext
-#ss.sparkContext.getConf().getAll()
+# ss.sparkContext
+# ss.sparkContext.stop()
+# ss.sparkContext
+# ss = SparkSession.builder.config(conf=conf).getOrCreate()
+# ss.sparkContext
+print(ss.sparkContext.getConf().getAll())
 
 ss.sparkContext.setLogLevel('WARN')
 #below option is for Provided schmea
