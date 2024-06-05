@@ -1,0 +1,20 @@
+{
+    "Records": [
+        {
+            "kinesis": {
+                "kinesisSchemaVersion": "1.0",
+                "partitionKey": "6BF34C39D921544D9B247151ACDA18DC",
+                "sequenceNumber": "49651840357640422453969532950971558856600358566362087458",
+                "data": "eyJhd3NSZWdpb24iOiJ1cy1lYXN0LTEiLCJldmVudElEIjoiZTM3ZGJlZTctZTQ5ZC00ZjIwLWEyYzktMTA3M2QwNTkwN2M3IiwiZXZlbnROYW1lIjoiSU5TRVJUIiwidXNlcklkZW50aXR5IjpudWxsLCJyZWNvcmRGb3JtYXQiOiJhcHBsaWNhdGlvbi9qc29uIiwidGFibGVOYW1lIjoiZHluYW1vZGItZ3NpLWxzaS1zb3VyY2UiLCJkeW5hbW9kYiI6eyJBcHByb3hpbWF0ZUNyZWF0aW9uRGF0ZVRpbWUiOjE3MTUxNDI0Mzc2OTQwMjEsIktleXMiOnsicHJvZHVjdF9pZCI6eyJTIjoiSUFDIn0sInVzZXJfaWQiOnsiUyI6Ik43NjkyNjMifX0sIk5ld0ltYWdlIjp7InByb2R1Y3RfaWQiOnsiUyI6IklBQyJ9LCJ1c2VyX2lkIjp7IlMiOiJONzY5MjYzIn19LCJTaXplQnl0ZXMiOjU0LCJBcHByb3hpbWF0ZUNyZWF0aW9uRGF0ZVRpbWVQcmVjaXNpb24iOiJNSUNST1NFQ09ORCJ9LCJldmVudFNvdXJjZSI6ImF3czpkeW5hbW9kYiJ9",
+                "approximateArrivalTimestamp": 1715142438.088
+            },
+            "eventSource": "aws:kinesis",
+            "eventVersion": "1.0",
+            "eventID": "shardId-000000000002:49651840357640422453969532950971558856600358566362087458",
+            "eventName": "aws:kinesis:record",
+            "invokeIdentityArn": "arn:aws:iam::928814396842:role/tf-role-testing",
+            "awsRegion": "us-east-1",
+            "eventSourceARN": "arn:aws:kinesis:us-east-1:928814396842:stream/iac-dyanmodb-streaming"
+        }
+    ]
+}

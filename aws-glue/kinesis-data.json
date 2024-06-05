@@ -1,0 +1,30 @@
+{
+    "awsRegion": "us-east-1",
+    "eventID": "e37dbee7-e49d-4f20-a2c9-1073d05907c7",
+    "eventName": "INSERT",
+    "userIdentity": null,
+    "recordFormat": "application/json",
+    "tableName": "dynamodb-gsi-lsi-source",
+    "dynamodb": {
+        "ApproximateCreationDateTime": 1715142437694021,
+        "Keys": {
+            "product_id": {
+                "S": "IAC"
+            },
+            "user_id": {
+                "S": "N769263"
+            }
+        },
+        "NewImage": {
+            "product_id": {
+                "S": "IAC"
+            },
+            "user_id": {
+                "S": "N769263"
+            }
+        },
+        "SizeBytes": 54,
+        "ApproximateCreationDateTimePrecision": "MICROSECOND"
+    },
+    "eventSource": "aws:dynamodb"
+}

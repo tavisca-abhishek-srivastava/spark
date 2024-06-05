@@ -21,7 +21,7 @@ AmazonS3_node1671617715902 = glueContext.create_dynamic_frame.from_options(
     },
     transformation_ctx="AmazonS3_node1671617715902",
 )
-# AmazonS3_node1671617715902.printSchema()
+# AmazonS3_node1671617715902.printSchema() ## check the schema for type of items
 # AmazonS3_node1671617715902.show()
 df = AmazonS3_node1671617715902.rename_field('Item.user_id','user_id').rename_field('Item.product_id','product_id').toDF()
 df.show()
@@ -30,7 +30,7 @@ ChangeSchemaApplyMapping_node1671617944126 = ApplyMapping.apply(
     frame=AmazonS3_node1671617715902,
     mappings=[
         
-        ("Item.product_id.S","string", "product_id","string"),
+        ("Item.product_id.S","string", "product_id","string"),  ## check the schema for type of items and replace them accordingly .S or .N
         ("Item.user_id.S","string","user_id","string"),
         ("Item.product_name.S","string","product_name","string"),
 
@@ -44,7 +44,7 @@ glueContext.write_dynamic_frame.from_options(
     connection_type="dynamodb",
     connection_options={
         "dynamodb.output.tableName": "DynamoDB-no-GSI-yes-LSI",
-        "dynamodb.throughput.write.percent": 0.5
+        "dynamodb.throughput.write.percent": 1.5
         }
 )
 job.commit()
