@@ -36,6 +36,3 @@ print("Names containing 'se' {0}".format(df5.show()))
 # using 'like' operator to check the condition for  values contains string/char
 df6 = df.filter((df.name.like('%se%')))
 print("Names containing 'se'{0}".format(df6.show()))
-
-
-
