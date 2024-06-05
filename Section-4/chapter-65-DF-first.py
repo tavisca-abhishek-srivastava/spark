@@ -26,7 +26,7 @@
 from pyspark.sql import SparkSession
 import os,sys,math
 
-ss = SparkSession.Builder.appName("First Spark App").getOrCreate()
+ss = SparkSession.builder.appName("First Spark App").getOrCreate()
 ss.sparkContext.setLogLevel('WARN')
 df = ss.read.option("header",True).csv("./StudentData.csv")
 print(df.show(truncate=False))
