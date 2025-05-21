@@ -19,5 +19,8 @@ df.createOrReplaceTempView("Student")
 
 record_df = ss.sql("select * from Student")
 
+print(record_df.show(truncate=False)) 
 
-print(record_df.show())
+record_df1 = ss.sql("select course , gender, count(1) as total_students, max(marks), sum(marks)/total_students as Avg  from Student group by course , gender ")
+
+print(record_df1.show(truncate=False)) 

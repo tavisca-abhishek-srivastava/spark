@@ -1,6 +1,6 @@
 from pyspark.sql.types import StructType,StructField , IntegerType,StringType
 from pyspark.sql import SparkSession , functions as fn
-from pyspark.sql.functions import col
+from pyspark.sql.functions import col,lit
 import os
 import sys , math , random
 os.environ['PYSPARK_PYTHON'] = sys.executable

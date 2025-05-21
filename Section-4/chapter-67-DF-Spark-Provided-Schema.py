@@ -35,5 +35,5 @@ ss.sparkContext.setLogLevel('WARN')
 #####below option is for Provided schmea
 df = ss.read.options( header='True', delemeter=',').schema(customSparkSchema1).csv("./StudentData.csv")
 
-print((df.show()))
+print((df.show(truncate=False)))
 print((df.printSchema()))

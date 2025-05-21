@@ -40,18 +40,18 @@ ss.sparkContext.setLogLevel('WARN')
 #below option is for Provided schmea
 df = ss.read.options( header='True', delemeter=',').schema(SparkSchema).csv("./StudentData.csv")
 # print((df.select("name","age").show()))
-print(df.select("name","age").show())
+print(df.select("name","age").show(truncate=False))
 # or 
 # print((df.select(df.name,df.age).show()))
-print(df.select(df.name,df.age).show())
+print(df.select(df.name,df.age).show(truncate=False))
 #or
 from pyspark.sql.functions import col
 #print((df.select(col("roll"),col("name")).show()))
-print(df.select(col("roll"),col("name")).show())
+print(df.select(col("roll"),col("name")).show(truncate=False))
 
 # to list all columns
 # print((df.select('*').show()))
-print(df.select("*").show())
+print(df.select("*").show(truncate=False))
 
 # to list columns using df.columns
 # print("All columns : \n {0} ".format((df.columns)))
@@ -61,4 +61,4 @@ print("All columns : \n {0} ".format(df.columns))
 #df1 = df.select(df.columns[0:4])
 df1 = df.select(df.columns[0:4])
 
-print(df1.show())
+print(df1.show(truncate=False))
