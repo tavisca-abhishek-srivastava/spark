@@ -1,6 +1,7 @@
 # Example: Use errorsAsDynamicFrame to view error records.
 # Replace s3://DOC-EXAMPLE-S3-BUCKET/error_data.json with your location.
-
+import findspark
+findspark.init() 
 from pyspark.context import SparkContext
 from awsglue.context import GlueContext
 
@@ -27,6 +28,7 @@ errors.errorsAsDynamicFrame().toDF().show()
 # View error fields and error data
 error_record = errors.errorsAsDynamicFrame().toDF().head()
 
+print(error_record)
 error_fields = error_record["error"]
 print("Error fields: ")
 print(error_fields.asDict().keys())
